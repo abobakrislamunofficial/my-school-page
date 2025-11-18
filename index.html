@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تعليمية متكاملة | على غرار فيو كلاس</title>
+    
+    <!-- لأيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- خط من جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- إعدادات عامة و متغيرات --- */
+        :root {
+            --primary-color: #0056b3; /* أزرق داكن */
+            --secondary-color: #007bff; /* أزرق ساطع */
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --white-color: #fff;
+            --light-gray: #e9ecef;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            direction: rtl; /* دعم اللغة العربية */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        /* --- الهيدر و شريط التنقل --- */
+        header {
+            background: var(--white-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .login-btn {
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+
+        /* --- قسم الهيرو --- */
+        .hero {
+            /* === رابط الصورة الذي تم إصلاحه === */
+            background: linear-gradient(to left, rgba(0, 86, 179, 0.8), rgba(0, 123, 255, 0.8)), url('https://images.pexels.com/photos/256517/pexels-photo-256517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white-color);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            background: var(--white-color);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* --- قسم المميزات --- */
+        .features {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .feature-card {
+            background: var(--white-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- قسم "عن النظام" --- */
+        .about {
+            padding: 4rem 2rem;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn.secondary {
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+        }
+
+        /* --- الفوتر --- */
+        footer {
+            background: var(--text-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .social-links a {
+            color: var(--white-color);
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+
+
+        /* --- التجاوب مع الشاشات الصغيرة (Responsive) --- */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: fixed; /* تغيير إلى fixed للبقاء عند التمرير */
+                right: 0;
+                top: 70px; /* المسافة من الأعلى */
+                background: var(--white-color);
+                height: 100vh;
+                width: 60%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start; /* البدء من الأعلى */
+                padding-top: 5rem;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+            }
+
+            .nav-links li {
+                opacity: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links li a {
+                display: block;
+                padding: 1.5rem 0;
+            }
+            
+            .burger {
+                display: block;
+            }
+
+            .nav-active {
+                transform: translateX(0%);
+            }
+
+            @keyframes navLinkFade {
+                from {
+                    opacity: 0;
+                    transform: translateX(50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+            }
+
+            .toggle .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .toggle .line2 {
+                opacity: 0;
+            }
+            .toggle .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">منصتي</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#">عن النظام</a></li>
+                <li><a href="#">المميزات</a></li>
+                <li><a href="#">اتصل بنا</a></li>
+            </ul>
+            <a href="#" class="login-btn">تسجيل الدخول</a>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- قسم الهيرو الرئيسي -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>نظام تعليمي إلكتروني تفاعلي</h1>
+                <p>بيئة تعليمية ذكية تعزز التواصل بين المعلم والطالب وولي الأمر.</p>
+                <a href="#" class="cta-btn">اكتشف النظام الآن</a>
+            </div>
+        </section>
+
+        <!-- قسم المميزات -->
+        <section class="features">
+            <h2>مميزات نظامنا</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>فصول افتراضية</h3>
+                    <p>إدارة الفصول والمواد الدراسية ومشاركة المحتوى التعليمي بسهولة.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>تقارير ذكية</h3>
+                    <p>متابعة أداء الطلاب وإصدار تقارير مفصلة عن الدرجات والسلوك.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>تواصل فعال</h3>
+                    <p>نظام رسائل وإعلانات يربط جميع أطراف العملية التعليمية.</p>
+                </div>
+                 <div class="feature-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>مكتبة رقمية</h3>
+                    <p>مكتبة مركزية للمواد التعليمية والملفات ومقاطع الفيديو.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- قسم "عن النظام" -->
+        <section class="about">
+             <div class="about-container">
+                 <div class="about-image">
+                     <!-- === رابط الصورة الذي تم إصلاحه === -->
+                     <img src="https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="بيئة عمل تعليمية حديثة">
+                 </div>
+                 <div class="about-text">
+                     <h2>مصمم خصيصاً لبيئة تعليمية ناجحة</h2>
+                     <p>نحن نوفر الأدوات التي تحتاجها المدارس الحديثة لتحقيق التحول الرقمي في التعليم، من إدارة الحضور والواجبات إلى التحفيز وإصدار الشهادات.</p>
+                     <a href="#" class="cta-btn secondary">اعرف المزيد</a>
+                 </div>
+             </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 منصتي التعليمية. جميع الحقوق محفوظة.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            burger.addEventListener('click', () => {
+                // تفعيل/إلغاء تفعيل القائمة
+                nav.classList.toggle('nav-active');
+
+                // تحريك الروابط
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+
+                // تحريك أيقونة البرجر
+                burger.classList.toggle('toggle');
+            });
+        }
+
+        navSlide();
+    </script>
+</body>
+</html>
