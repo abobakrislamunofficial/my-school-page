@@ -69,16 +69,19 @@
         .login-btn:hover {
             background-color: var(--secondary-color);
         }
-        .back-link {
+        .extra-links {
             margin-top: 1.5rem;
-            display: inline-block;
             font-size: 0.9rem;
+        }
+        .extra-links a {
+            display: block;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <div class="logo">منصتي</div>
+        <div class="logo">تسجيل الدخول</div>
         <form class="login-form">
             <div class="input-group">
                 <label for="username">اسم المستخدم</label>
@@ -90,7 +93,10 @@
             </div>
             <button type="submit" class="login-btn">دخول</button>
         </form>
-        <a href="index.html" class="back-link">العودة إلى الصفحة الرئيسية &rarr;</a>
+        <div class="extra-links">
+            <a href="signup.html">ليس لديك حساب؟ أنشئ حساباً جديداً</a>
+            <a href="index.html">العودة إلى الصفحة الرئيسية &rarr;</a>
+        </div>
     </div>
 </body>
 </html>
