@@ -11,17 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- إعدادات عامة و متغيرات --- */
         :root {
-            --primary-color: #0056b3; /* أزرق داكن */
-            --secondary-color: #007bff; /* أزرق ساطع */
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
             --text-color: #333;
             --bg-color: #f4f7f6;
             --white-color: #fff;
-            --light-gray: #e9ecef;
         }
         
-        /* === إضافة لجعل التمرير ناعماً === */
         html {
             scroll-behavior: smooth;
         }
@@ -36,7 +33,7 @@
             font-family: 'Cairo', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            direction: rtl; /* دعم اللغة العربية */
+            direction: rtl;
         }
 
         a {
@@ -52,7 +49,6 @@
             font-weight: 600;
         }
 
-        /* --- الهيدر و شريط التنقل --- */
         header {
             background: var(--white-color);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -116,8 +112,6 @@
             transition: all 0.3s ease;
         }
 
-
-        /* --- قسم الهيرو --- */
         .hero {
             background: linear-gradient(to left, rgba(0, 86, 179, 0.8), rgba(0, 123, 255, 0.8)), url('https://images.pexels.com/photos/256517/pexels-photo-256517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover;
             height: 80vh;
@@ -153,7 +147,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* --- قسم المميزات --- */
         .features {
             padding: 4rem 2rem;
             text-align: center;
@@ -196,7 +189,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* --- قسم "عن النظام" --- */
         .about {
             padding: 4rem 2rem;
         }
@@ -232,7 +224,6 @@
             color: var(--white-color);
         }
 
-        /* --- الفوتر --- */
         footer {
             background: var(--text-color);
             color: var(--white-color);
@@ -245,19 +236,17 @@
             font-size: 1.5rem;
         }
 
-
-        /* --- التجاوب مع الشاشات الصغيرة (Responsive) --- */
         @media screen and (max-width: 768px) {
             .nav-links {
-                position: fixed; /* تغيير إلى fixed للبقاء عند التمرير */
+                position: fixed;
                 right: 0;
-                top: 70px; /* المسافة من الأعلى */
+                top: 70px;
                 background: var(--white-color);
                 height: 100vh;
                 width: 60%;
                 flex-direction: column;
                 align-items: center;
-                justify-content: flex-start; /* البدء من الأعلى */
+                justify-content: flex-start;
                 padding-top: 5rem;
                 transform: translateX(100%);
                 transition: transform 0.5s ease-in;
@@ -318,16 +307,15 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="#">منصتي</a>
+                <a href="index.html">منصتي</a>
             </div>
             <ul class="nav-links">
-                <li><a href="#">الرئيسية</a></li>
-                <!-- === تم التعديل هنا === -->
+                <li><a href="index.html">الرئيسية</a></li>
                 <li><a href="#about">عن النظام</a></li>
                 <li><a href="#features">المميزات</a></li>
                 <li><a href="#contact">اتصل بنا</a></li>
             </ul>
-            <a href="#" class="login-btn">تسجيل الدخول</a>
+            <a href="login.html" class="login-btn">تسجيل الدخول</a>
             <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -337,17 +325,14 @@
     </header>
 
     <main>
-        <!-- قسم الهيرو الرئيسي -->
         <section class="hero">
             <div class="hero-content">
                 <h1>نظام تعليمي إلكتروني تفاعلي</h1>
                 <p>بيئة تعليمية ذكية تعزز التواصل بين المعلم والطالب وولي الأمر.</p>
-                <a href="#" class="cta-btn">اكتشف النظام الآن</a>
+                <a href="#features" class="cta-btn">اكتشف النظام الآن</a>
             </div>
         </section>
 
-        <!-- قسم المميزات -->
-        <!-- === تم التعديل هنا === -->
         <section id="features" class="features">
             <h2>مميزات نظامنا</h2>
             <div class="features-grid">
@@ -374,8 +359,6 @@
             </div>
         </section>
         
-        <!-- قسم "عن النظام" -->
-        <!-- === تم التعديل هنا === -->
         <section id="about" class="about">
              <div class="about-container">
                  <div class="about-image">
@@ -384,14 +367,13 @@
                  <div class="about-text">
                      <h2>مصمم خصيصاً لبيئة تعليمية ناجحة</h2>
                      <p>نحن نوفر الأدوات التي تحتاجها المدارس الحديثة لتحقيق التحول الرقمي في التعليم، من إدارة الحضور والواجبات إلى التحفيز وإصدار الشهادات.</p>
-                     <a href="#" class="cta-btn secondary">اعرف المزيد</a>
+                     <a href="#contact" class="cta-btn secondary">اعرف المزيد</a>
                  </div>
              </div>
         </section>
 
     </main>
 
-    <!-- === تم التعديل هنا === -->
     <footer id="contact">
         <div class="footer-content">
             <p>&copy; 2025 منصتي التعليمية. جميع الحقوق محفوظة.</p>
@@ -410,10 +392,8 @@
             const navLinks = document.querySelectorAll('.nav-links li');
 
             burger.addEventListener('click', () => {
-                // تفعيل/إلغاء تفعيل القائمة
                 nav.classList.toggle('nav-active');
 
-                // تحريك الروابط
                 navLinks.forEach((link, index) => {
                     if (link.style.animation) {
                         link.style.animation = '';
@@ -421,12 +401,9 @@
                         link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
                     }
                 });
-
-                // تحريك أيقونة البرجر
                 burger.classList.toggle('toggle');
             });
         }
-
         navSlide();
     </script>
 </body>
